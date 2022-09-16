@@ -42,7 +42,7 @@ def on_enter(e):
 def on_leave(e):
     name = password.get()
     if name == "":
-        password.insert(0,'username')
+        password.insert(0,'password')
 
 
 password = Entry(frame,width=20,fg='black',bg='white',font=('Microsoft YaHei UI light',11),border=-2,highlightthickness=0)
@@ -52,12 +52,15 @@ password.bind('<FocusIn>',on_enter)
 password.bind('<FocusOut>',on_leave)
 Frame(frame,width=270,height=1,bg='black').place(x=25,y=170)
 
+def li_message():
+    user_name = username.get()
+    messagebox.showinfo(title="Log In",message=f"Hello {user_name},You're Logged in")
 
-Button(frame,width=22,pady=10,text="Log In",bg='#92E3A9',fg='white',border=0).place(x=60,y=204)
+
+Button(frame,width=22,pady=10,text="Log In",bg='#92E3A9',fg='white',border=0,command=li_message).place(x=60,y=204)
 
 label=Label(frame,text="Don't Have An Account? ",bg='white',fg='black',font=('Microsoft YaHei UI light',9))
 label.place(x=65,y=260)
-
 
 
 sign_up = Button(frame,width=4,height=2,cursor='hand2',text="Sign Up",border=-2,bg='white',fg='black',highlightthickness=0)
